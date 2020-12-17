@@ -1,0 +1,40 @@
+$loader-size: 1.25rem;
+$loader-border-width: 2px;
+$loader-border-color: rgba(0, 0, 0, 0.875)
+$loader-border-bg-color: rgba(0, 0, 0, 0.125);
+
+.loader {
+  width: $loader-size;
+  height: $loader-size;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 1000px;
+  }
+
+  &::before {
+    border: $loader-border-width solid $loader-border-bg-color;
+  }
+
+  &::after {
+    border: $loader-border-width solid transparent;
+    border-top-color: $loader-border-color;
+    animation: rotate 1s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
